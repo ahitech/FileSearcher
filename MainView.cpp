@@ -13,6 +13,12 @@ MainView::MainView (BRect frame)
 			 B_WILL_DRAW | B_NAVIGABLE)
 {
 	this->SetViewColor (ui_color(B_MENU_BACKGROUND_COLOR));
+	
+	m_PathToSearch = new BTextControl(BRect(10, 10), "Path");
+	
+	BuildListOfFilesUI();
+	
+	
 }
 
 
@@ -22,6 +28,10 @@ MainView::~MainView ()
 }
 
 
+void MainView::BuildListOfFilesUI()
+{
+		
+}
 
 void MainView::AttachedToWindow() 
 {

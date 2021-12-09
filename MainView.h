@@ -5,6 +5,12 @@
 #ifndef MAIN_VIEW_H
 #define MAIN_VIEW_H
 
+#include <CheckBox.h>
+#include <ListItem.h>
+#include <OutlineListView.h>
+#include <ScrollView.h>
+#include <TabView.h>
+#include <TextControl.h>
 #include <View.h>
 
 #include <SupportDefs.h>
@@ -18,8 +24,15 @@ public:
 	~MainView ();
 	
 	void AttachedToWindow();
-private:
-
+protected:
+	BTextControl*	m_PathToSearch;
+	BButton*		m_ChooseFolder;
+	BTextControl*	m_ContainingText;
+	BCheckBox*		m_EnableRegEx;
+	BScrollView*	m_ListOfFiles;
+	BTabView*		m_InfoTabs;
+	
+	void	BuildListOfFilesUI();
 };
 
 
