@@ -52,6 +52,7 @@ protected:
 	BTabView*		m_InfoTabs;
 	
 	void	BuildFilesCriteriaUI();
+	BLayoutItem* BuildMainOptions();
 };
 
 

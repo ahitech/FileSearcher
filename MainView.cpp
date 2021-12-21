@@ -16,9 +16,12 @@ MainView::MainView (BRect frame)
 			 B_WILL_DRAW | B_NAVIGABLE)
 {
 	this->SetViewColor (ui_color(B_MENU_BACKGROUND_COLOR));
+	
+	
+	BView* cardView = new BView ("Test card", B_WILL_DRAW);
 		
-	BLayoutBuilder::Group<>(this, B_VERTICAL, 0)
-		.AddGrid(B_HORIZONTAL, B_USE_ITEM_SPACING)
+	BLayoutBuilder::Group<>(cardView, B_VERTICAL)
+		.AddGrid(B_USE_SMALL_SPACING, B_USE_SMALL_SPACING)
 			.Add(m_PathToSearchLabel = new BStringView("Path label", 
 											B_TRANSLATE("Path to search:")),
 					0, 0)
@@ -46,9 +49,20 @@ MainView::MainView (BRect frame)
 					1, 2, 2, 1)
 			.End()				
 		.AddGlue()
-		.SetInsets(B_USE_WINDOW_SPACING);
+		.SetInsets(B_USE_SMALL_SPACING);
 
+	BTabView* m_InfoTabs = new BTabView("main tabs", B_WIDTH_FROM_LABEL);
+	m_InfoTabs->AddChild(cardView, NULL);
 	
+	BLayoutBuilder::Group<>(this, B_VERTICAL)
+		.Add(m_InfoTabs)
+		.AddGlue()
+		.SetInsets(B_USE_SMALL_SPACING);
+}
+
+BLayoutItem* MainView::BuildMainOptions()
+{
+	return NULL;
 }
 
 
